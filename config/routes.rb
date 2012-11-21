@@ -1,4 +1,18 @@
 WorkshopsBlog::Application.routes.draw do
+
+  match '/auth/:provider/callback' => 'authentications#create'
+
+ 
+  devise_for :users
+  resources :posts do
+  resources :comments
+end
+
+  resources :posts
+
+  namespace(:admin){ resources :posts }
+  root :to => 'posts#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

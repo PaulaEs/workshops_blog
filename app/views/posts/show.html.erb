@@ -1,0 +1,31 @@
+<% title "Post" %>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <%= link_to "View All", posts_path %>
+</p>
+
+<%= render @comments %>
+
+<% if user_signed_in? %>
+<%= form_for [@post, @comment] do |f| %>
+<%= f.text_area :content, :cols => 30, :rows => 5 %>
+<div>
+<%= f.button 'Comment' %>
+</div>
+<% end %>
+<% else %>
+<%= link_to "Sign in with Facebook", '#', :id => 'facebook-login' %>
+<% end %>
+
+
+
+

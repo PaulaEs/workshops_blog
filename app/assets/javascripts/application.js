@@ -13,3 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function(){
+$('#facebook-login').click(function(e){
+e.preventDefault()
+FB.login(function(response){
+if(response.authResponse) {
+window.location = '/auth/facebook'
+}
+}, {scope: 'email'})
+})
+})
