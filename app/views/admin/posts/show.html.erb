@@ -15,5 +15,8 @@
   <%= link_to "View All", admin_posts_path %>
 </p>
 
+<p><%= image_tag @post.image if @post.image.exists? %></p>
+
+
 
 

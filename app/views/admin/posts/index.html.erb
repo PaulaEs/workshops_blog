@@ -3,6 +3,7 @@
 <div>
  <p><%= post.title %></p>
  <p><%= post.content %></p>
+ <p><%= image_tag post.image if post.image.exists? %></p>
  <%= link_to "Show", post %>
 </div>
 <% end %>
